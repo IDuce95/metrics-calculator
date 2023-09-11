@@ -47,15 +47,18 @@ def test_regression_metrics(dataset, real, predicted, expected):
                          [('train',
                            pd.Series([0, 0, 0, 0, 1, 1, 1, 1], dtype=float),
                            pd.Series([0, 0, 0, 0, 1, 1, 1, 1], dtype=float),
-                           {'acc': 1.0, 'b_acc': 1.0, 'recall': 1.0, 'f1': 1.0, 'precision': 1.0}),
+                           {'acc': 1.0, 'b_acc': 1.0, 'recall': 1.0,
+                            'f1': 1.0, 'precision': 1.0}),
                           ('val',
                            pd.Series([1, 1, 1, 1, 1, 1, 1, 1], dtype=float),
                            pd.Series([0, 0, 0, 0, 0, 0, 0, 0], dtype=float),
-                           {'acc': 0.0, 'b_acc': 0.0, 'recall': 0.0, 'f1': 0.0, 'precision': 0.0}),
+                           {'acc': 0.0, 'b_acc': 0.0, 'recall': 0.0,
+                            'f1': 0.0, 'precision': 0.0}),
                           ('test',
                            pd.Series([1, 1, 1, 1, 1, 1, 1, 1], dtype=float),
                            pd.Series([1, 1, 1, 1, 0, 0, 0, 0], dtype=float),
-                           {'acc': 0.5, 'b_acc': 0.5, 'recall': 0.25, 'f1': 0.666667, 'precision': 1.0})])
+                           {'acc': 0.5, 'b_acc': 0.5, 'recall': 0.25,
+                            'f1': 0.666667, 'precision': 1.0})])
 def test_classification_metrics(dataset, real, predicted, expected):
     data = {
         dataset: {
@@ -76,8 +79,8 @@ def test_classification_metrics(dataset, real, predicted, expected):
     results = calculate_metrics(data=data, metadata=metadata)
 
     for metric in ['acc', 'b_acc', 'recall', 'f1', 'precision']:
-        assert round(results[f'{metric}_{dataset}'].values[0], 3) == round(expected[metric], 3), \
-            f'Niepoprawna wartość metryki {metric}'
+        assert round(results[f'{metric}_{dataset}'].values[0], 3) == \
+            round(expected[metric], 3), f'Niepoprawna wartość metryki {metric}'
 
 
 def test_ProblemTypeNotImplemented():
