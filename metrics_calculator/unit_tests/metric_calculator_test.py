@@ -2,7 +2,7 @@ import pytest
 import pandas as pd
 import numpy as np
 
-from metrics_calculator.main import calculate_metrics
+from metrics_calculator.app import calculate_metrics
 import metrics_calculator.logger_utils.exceptions as exceptions
 
 

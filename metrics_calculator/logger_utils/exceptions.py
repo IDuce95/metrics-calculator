@@ -106,3 +106,11 @@ w słowniku') -> None:
         self.message = get_full_message(func_name, code_line,
                                         description, message)
         super().__init__(self.message)
+
+
+class MetadataKeyMissing(Error):
+    def __init__(self, func_name, code_line, message,
+                 description='Brakujący klucz w słowniku metadata') -> None:
+        self.message = get_full_message(func_name, code_line,
+                                        description, message)
+        super().__init__(self.message)

@@ -230,3 +230,17 @@ def validate_problem_type(problem_type: str) -> None:
                                 f'Błąd dla typu problemu "{problem_type}"',
                                 inspect.stack()[0].function,
                                 sys.exc_info()[-1].tb_lineno)  # type: ignore
+
+
+def validate_metadata_dict(metadata: dict) -> None:
+
+    keys = ['problem_type', 'metrics', 'results_file_name',
+            'results_structure', 'comment', 'save']
+    try:
+        for key in keys:
+            assert key in metadata.keys()
+    except AssertionError:
+        logger_module.log_error(logger, exceptions.MetadataKeyMissing,
+                                f'W słowniku metadata brakuje klucza "{key}"',
+                                inspect.stack()[0].function,
+                                sys.exc_info()[-1].tb_lineno)  # type: ignore

@@ -129,7 +129,8 @@ metadata = {
 - czy zadane metryki są dostępne dla zadanego typu problemu; wyrzuci błąd na przykład w momencie liczenia metryki `accuracy` dla regresji,
 - czy któryś z podanych szeregów nie jest pusty (jego długość to 0),
 - czy długość szeregu z wartościami rzeczywistymi jest równa długości szeregu z predykcjami (w przeciwnym wypadku niemożliwe będzie policzenie metryk),
-- czy któryś z podanych szeregów nie zawiera brakujących wartości (nan).
+- czy któryś z podanych szeregów nie zawiera brakujących wartości (nan),
+- czy słownik metadata zawiera wszystkie wymagane klucze.
 ####
 ***
 ***
